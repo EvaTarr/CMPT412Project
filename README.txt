@@ -8,3 +8,7 @@ memePosts.py
     -comments and posts (not sure what exactly will be compared yet, looking into it)
     -one-year-of-doge-on-reddit-posts.csv
     -one-year-of-doge-on-reddit-comments.csv
+
+KYLE
+---------------------------------
+Correlation tool to measure correlation for any two variables.
