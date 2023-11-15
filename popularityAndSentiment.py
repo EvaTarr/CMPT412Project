@@ -1,12 +1,11 @@
 # Eva Tarr, 11234313, ELT783
-# Using the posts that relate to the trucker strike
 # Checking to see if there is a correlation to post popularity (# of likes) and the sentiment connected to it
 import pandas as pd
 import matplotlib.pyplot as plt
-def truckerPosts():
+def popularityAndSentiment():
     file_path = "the-2022-trucker-strike-on-reddit-comments.csv"
     # number of posts to get (top n)
-    n = 50
+    n = 20
     # read file with utf-8
     allTruckerPosts = pd.read_csv(file_path, encoding='utf-8')
     # drop all empty columns
@@ -36,4 +35,4 @@ def truckerPosts():
     plt.show()
 
 # run
-truckerPosts()
+popularityAndSentiment()
