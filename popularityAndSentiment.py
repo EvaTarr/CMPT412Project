@@ -3,16 +3,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 def popularityAndSentiment():
-    file_path = "the-2022-trucker-strike-on-reddit-comments.csv"
+    file_path = "the-reddit-climate-change-dataset-comments.csv"
     # number of posts to get (top n)
     n = 20
     # read file with utf-8
-    allTruckerPosts = pd.read_csv(file_path, encoding='utf-8')
+    allPosts = pd.read_csv(file_path, encoding='utf-8')
     # drop all empty columns
-    truckerPosts_cleaned = allTruckerPosts.dropna(axis=1, how='all')
-    truckerPosts_sorted = truckerPosts_cleaned.sort_values(by='score', ascending=False)
-    top_posts = truckerPosts_sorted.head(n)
-
+    Posts_cleaned = allPosts.dropna(axis=1, how='all')
+    Posts_sorted = Posts_cleaned.sort_values(by='score', ascending=False)
+    top_posts = Posts_sorted.head(n)
     fig, leftAxis = plt.subplots(figsize=(20, 10))
 
     leftAxis.bar(top_posts['id'], top_posts['score'], color='lightsteelblue', label='Score')

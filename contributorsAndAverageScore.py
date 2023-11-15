@@ -5,10 +5,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def conributorsAndAverageScore():
-    file_path_comments = "the-2022-trucker-strike-on-reddit-comments.csv"
+    file_path_comments = "the-reddit-climate-change-dataset-comments.csv"
     topN = 50
 
-    allComments = pd.read_csv(file_path_comments, encoding='utf-8')
+    allComments = pd.read_csv(file_path_comments, encoding='utf-8',nrows=1000000)
     comments_cleaned = allComments.dropna(axis=1, how='all')
 
     post_comments = {}
