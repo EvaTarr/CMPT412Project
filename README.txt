@@ -14,6 +14,11 @@ timeOfCreationAndScore.py
     -Creates a graph, that using a dataset of comments, displays the posts from a given month (based on their
     creation date) and the average score the comments received. Good to use for the doge data
 
+numOfComments.py
+    -Creates a graph, that using a dataset of comments and posts, displays the most popular posts (based on
+    their score) and the number of comments on each post
+
+
 KYLE
 ---------------------------------
 Correlation tool to measure correlation for any two variables.

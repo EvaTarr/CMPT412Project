@@ -1,10 +1,7 @@
 # Eva Tarr, 11234313, ELT783
 from datetime import datetime
-
 import pandas as pd
 import matplotlib.pyplot as plt
-
-
 def timeOfCreationAndScore():
     file_path = "one-year-of-doge-on-reddit-comments.csv"
 

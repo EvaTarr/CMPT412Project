@@ -8,7 +8,7 @@ def numOfWordsAndPopularity():
     file_path_comments = "one-year-of-doge-on-reddit-comments.csv"
     topN = 50
 
-    allComments = pd.read_csv(file_path_comments, encoding='utf-8', nrows=1000000)
+    allComments = pd.read_csv(file_path_comments, encoding='utf-8')
     comments_cleaned = allComments.dropna(axis=1, how='all')
     comments_sorted = comments_cleaned.sort_values(by='score', ascending=False)
     top_comments = comments_sorted.head(topN)
