@@ -1,11 +1,11 @@
 # Eva Tarr, 11234313, ELT783
-# Checking to see if there is a correlation to post popularity (# of likes) and the sentiment connected to it
+# DONE
 import pandas as pd
 import matplotlib.pyplot as plt
 def popularityAndSentiment():
-    file_path = "the-reddit-climate-change-dataset-comments.csv"
+    file_path = "reddit-r-nonewnormal-dataset-comments.csv"
     # number of posts to get (top n)
-    n = 20
+    n = 50
     # read file with utf-8
     allPosts = pd.read_csv(file_path, encoding='utf-8')
     # drop all empty columns
@@ -27,7 +27,7 @@ def popularityAndSentiment():
     rightAxis.set_ylabel('sentiment', color='red')
     rightAxis.tick_params('y', colors='red')
 
-    plt.title(f'Top {n} Most Liked Posts with Sentiment')
+    plt.title(f'Top {n} Most Liked Comments with Sentiment')
     fig.tight_layout()
     # place the legend in the top right hand side
     fig.legend(loc='upper right', bbox_to_anchor=(0.95, 0.95))

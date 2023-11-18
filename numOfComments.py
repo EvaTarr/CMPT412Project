@@ -1,4 +1,5 @@
 # Eva Tarr, 11234313, ELT783
+#TODO: Update to use ranges and averages
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -34,7 +35,6 @@ def numOfComments():
     leftAxis.set_xlabel('Post ID')
     leftAxis.set_ylabel('Number of comments', color='lightsteelblue')
     leftAxis.tick_params('y', colors='lightsteelblue')
-    # rotate all the x ID's to be vertical for better readability
     plt.xticks(rotation='vertical')
 
     plt.title("Number of comments on a post")
