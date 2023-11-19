@@ -5,7 +5,7 @@ from datetime import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 def timeOfCreationAndScore():
-    file_path = "the-2022-trucker-strike-on-reddit-comments.csv"
+    file_path = "reddit-r-nonewnormal-dataset-comments.csv"
 
     allPosts = pd.read_csv(file_path, encoding='utf-8')
     columns_cleaned = allPosts.dropna(axis=1, how='all')
