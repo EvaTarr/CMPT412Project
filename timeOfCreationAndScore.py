@@ -5,7 +5,7 @@ from datetime import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 def timeOfCreationAndScore():
-    file_path = "the-antiwork-subreddit-dataset-posts.csv"
+    file_path = "the-2022-trucker-strike-on-reddit-comments.csv"
 
     allPosts = pd.read_csv(file_path, encoding='utf-8')
     columns_cleaned = allPosts.dropna(axis=1, how='all')
@@ -27,9 +27,9 @@ def timeOfCreationAndScore():
         months[key] /= monthsNum[key]
 
     fig, leftAxis = plt.subplots(figsize=(20, 10))
-    leftAxis.bar(months.keys(), months.values(), color='lightsteelblue', label='Score')
-    leftAxis.set_xlabel('Post ID')
-    leftAxis.set_ylabel('Score', color='lightsteelblue')
+    leftAxis.bar(months.keys(), months.values(), color='lightsteelblue', label='Average Score')
+    leftAxis.set_xlabel('Month and Year')
+    leftAxis.set_ylabel('Average Score', color='lightsteelblue')
     leftAxis.tick_params('y', colors='lightsteelblue')
     # rotate all the x ID's to be vertical for better readability
     plt.xticks(rotation='vertical')
