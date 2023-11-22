@@ -22,6 +22,13 @@ def numOfCommentsAndPopularity():
         commentUrl = str(row['permalink']).split("/")[6]
         if commentUrl in posts_commentNum.keys():
             posts_commentNum[commentUrl][1] += 1
+    removeMe = []
+    for post in posts_commentNum.keys():
+        if posts_commentNum[post] == 0:
+            removeMe.append(post)
+    for post in removeMe:
+        posts_commentNum.pop(post)
+
     comment_ranges_by10 = [(0, 10), (11, 20), (21, 30), (31, 40), (41, 50), (51, 60), (61, 70), (71, 80), (81, 90), (91, 100), (101, float('inf'))]
     comment_ranges = [(0, 5), (6, 10), (11, 15), (16, 20), (21, 25), (26, 30), (31, 35), (36, 40), (41, 45), (46, 50),(51, float('inf'))]
     grouped_comments = {}
