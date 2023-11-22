@@ -20,7 +20,6 @@ dayTimeOfCreationAndScore.py
 numOfComments.py
     -Creates a graph, that using a dataset of comments and posts, displays the most popular posts (based on
     their score) and the number of comments on each post
-    -NEED TO UPDATE
 
 KYLE
 ---------------------------------

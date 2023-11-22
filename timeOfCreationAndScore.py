@@ -1,16 +1,15 @@
 # Eva Tarr, 11234313, ELT783
 
-
 from datetime import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 def timeOfCreationAndScore():
+    # File path can change to the dataset we want to work with
     file_path = "reddit-r-nonewnormal-dataset-comments.csv"
-
-    allPosts = pd.read_csv(file_path, encoding='utf-8')
-    columns_cleaned = allPosts.dropna(axis=1, how='all')
-    Posts_cleaned = columns_cleaned.dropna()
-    Posts_sorted = Posts_cleaned.sort_values(by='created_utc', ascending=True)
+    allPosts = pd.read_csv(file_path, encoding='utf-8')                         # Read the file
+    columns_cleaned = allPosts.dropna(axis=1, how='all')                        # Remove all empty columns
+    Posts_cleaned = columns_cleaned.dropna()                                    # remove all empty rows
+    Posts_sorted = Posts_cleaned.sort_values(by='created_utc', ascending=True)  # Sort based on the time of creation
 
     months = {}
     monthsNum = {}
@@ -23,17 +22,16 @@ def timeOfCreationAndScore():
             months[monthName] = row['score']
             monthsNum[monthName] = 1
 
-    for key in months.keys():
+    for key in months.keys():                       # Get the average score of all comments
         months[key] /= monthsNum[key]
 
+    # Show graph
     fig, leftAxis = plt.subplots(figsize=(20, 10))
     leftAxis.bar(months.keys(), months.values(), color='lightsteelblue', label='Average Score')
     leftAxis.set_xlabel('Month and Year')
     leftAxis.set_ylabel('Average Score', color='lightsteelblue')
     leftAxis.tick_params('y', colors='lightsteelblue')
-    # rotate all the x ID's to be vertical for better readability
     plt.xticks(rotation='vertical')
-
     plt.title("Time of creation and the comment score")
     plt.show()
 

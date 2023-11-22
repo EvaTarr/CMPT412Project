@@ -1,15 +1,13 @@
 # Eva Tarr, 11234313, ELT783
-# DONE
+
 import pandas as pd
 import matplotlib.pyplot as plt
-
-
 def numOfWordsAndPopularity():
+    # File path can change to the dataset we want to work with
     file_path_comments = "reddit-r-nonewnormal-dataset-comments.csv"
-
-    allComments = pd.read_csv(file_path_comments, encoding='utf-8')
-    comments_cleaned = allComments.dropna(axis=1, how='all')
-    clean = comments_cleaned.dropna()
+    allComments = pd.read_csv(file_path_comments, encoding='utf-8')             # Read the csv file
+    comments_cleaned = allComments.dropna(axis=1, how='all')                    # Clean all the empty columns
+    clean = comments_cleaned.dropna()                                           # Clean all of the empty rows
 
     lengthOfComment = {}
     for i, row in clean.iterrows():
@@ -22,6 +20,7 @@ def numOfWordsAndPopularity():
                 comment_total += 1
         lengthOfComment[comment_name] = (comment_total, comment_score)
 
+    # Ranged for the number of words
     word_ranges = [(0, 20), (21, 40), (41, 60), (61, 80), (81,100), (101,float('inf'))]
     grouped_scores = {}
     for post, data in lengthOfComment.items():
@@ -34,17 +33,17 @@ def numOfWordsAndPopularity():
                 grouped_scores[(start, end)]['count'] += 1
                 break
 
-    xAxis = [f"{start}-{end}" for start, end in word_ranges]
+    xAxis = [f"{start}-{end}" for start, end in word_ranges]            # Get all xAxis names
     yAxis = []
-    for key, value in grouped_scores.items():
+    for key, value in grouped_scores.items():                           # Get all yAxis names (left hand side)
         yAxis.append(value['count'])
 
     yAxis2 = []
-    for key, value in grouped_scores.items():
+    for key, value in grouped_scores.items():                           # get all second yAxis names (right hand side)
         average = value['sum'] / value['count']
         yAxis2.append(average)
-    print(yAxis2)
 
+    # Display the graph
     fig, leftAxis = plt.subplots(figsize=(20, 12))
     leftAxis.bar(xAxis, yAxis, color='pink')
     leftAxis.set_xlabel('Number Of Words')
@@ -58,6 +57,5 @@ def numOfWordsAndPopularity():
 
     plt.title("Number of Words in a Comment and their Average Scores")
     plt.show()
-
 
 numOfWordsAndPopularity()
