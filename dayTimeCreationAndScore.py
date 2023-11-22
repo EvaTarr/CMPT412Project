@@ -5,13 +5,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def dayTimeCreationAndScore():
-    file_path = "the-2022-trucker-strike-on-reddit-comments.csv"
+    file_path = "reddit-r-nonewnormal-dataset-comments.csv"
 
     allPosts = pd.read_csv(file_path, encoding='utf-8')
     columns_cleaned = allPosts.dropna(axis=1, how='all')
     Posts_cleaned = columns_cleaned.dropna()
     Posts_sorted = Posts_cleaned.sort_values(by='created_utc', ascending=True)
-
     hours = {}
     hoursNum = {}
 
@@ -38,6 +37,7 @@ def dayTimeCreationAndScore():
 
     plt.title("Hour of creation and the comment score")
     plt.show()
+    print(Posts_sorted.corr())
 
 
 dayTimeCreationAndScore()

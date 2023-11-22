@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 
 
 def numOfCommentsAndPopularity():
-    file_path_comments = "wallstreetbets-posts-and-comments-for-august-2021-comments.csv"
-    file_path_posts = "wallstreetbets-posts-and-comments-for-august-2021-posts.csv"
+    file_path_comments = "one-year-of-tsla-on-reddit-comments.csv"
+    file_path_posts = "one-year-of-tsla-on-reddit-posts.csv"
 
     allComments = pd.read_csv(file_path_comments, encoding='utf-8')
     allPosts = pd.read_csv(file_path_posts, encoding='utf-8')
@@ -22,8 +22,8 @@ def numOfCommentsAndPopularity():
         commentUrl = str(row['permalink']).split("/")[6]
         if commentUrl in posts_commentNum.keys():
             posts_commentNum[commentUrl][1] += 1
-
-    comment_ranges = [(0, 10), (11, 20), (21, 30), (31, 40), (41, 50), (51, 60), (61, 70), (71, 80), (81, 90), (91, 100), (101, float('inf'))]
+    comment_ranges_by10 = [(0, 10), (11, 20), (21, 30), (31, 40), (41, 50), (51, 60), (61, 70), (71, 80), (81, 90), (91, 100), (101, float('inf'))]
+    comment_ranges = [(0, 5), (6, 10), (11, 15), (16, 20), (21, 25), (26, 30), (31, 35), (36, 40), (41, 45), (46, 50),(51, float('inf'))]
     grouped_comments = {}
     for post, data in posts_commentNum.items():
         score, num = data
