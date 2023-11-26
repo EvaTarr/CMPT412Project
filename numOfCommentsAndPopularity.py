@@ -53,6 +53,7 @@ def numOfCommentsAndPopularity():
         average = value['allScores'] / value['count']
         yAxis2.append(average)
 
+
     # Display the graph
     fig, leftAxis = plt.subplots(figsize=(20, 12))
     leftAxis.bar(xAxis, yAxis, color='pink')
