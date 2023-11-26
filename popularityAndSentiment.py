@@ -11,8 +11,8 @@ def popularityAndSentiment():
     Posts_sorted = Posts_cleaned.sort_values(by='score', ascending=False)  # Organize based on score
     top_posts = Posts_sorted.head(n)  # Only extract the top n
 
-    correlation_coefficient = Posts_sorted['score'].corr(Posts_sorted['sentiment'])
-    print(correlation_coefficient)
+    cc = Posts_sorted['score'].corr(Posts_sorted['sentiment'])
+    print(cc)
     # Show graph
     fig, leftAxis = plt.subplots(figsize=(20, 10))
     leftAxis.bar(top_posts['id'], top_posts['score'], color='lightsteelblue', label='Score')
