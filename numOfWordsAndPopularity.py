@@ -6,7 +6,7 @@ import numpy as np
 
 def numOfWordsAndPopularity():
     # File path can change to the dataset we want to work with
-    file_path_comments = "one-year-of-doge-on-reddit-comments.csv"
+    file_path_comments = "the-2022-trucker-strike-on-reddit-comments.csv"
     allComments = pd.read_csv(file_path_comments, encoding='utf-8')             # Read the csv file
     comments_cleaned = allComments.dropna(axis=1, how='all')                    # Clean all the empty columns
     clean = comments_cleaned.dropna()                                           # Clean all of the empty rows
