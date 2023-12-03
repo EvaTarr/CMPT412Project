@@ -22,8 +22,8 @@ def timeOfCreationAndScore():
             months[monthName] = row['score']
             monthsNum[monthName] = 1
 
-    for key in months.keys():                       # Get the average score of all comments
-        months[key] /= monthsNum[key]
+    for month in months.keys():                       # Get the average score of all comments
+        months[month] /= monthsNum[month]
 
     # Show graph
     fig, leftAxis = plt.subplots(figsize=(20, 10))

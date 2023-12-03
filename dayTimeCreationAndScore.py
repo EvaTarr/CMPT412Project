@@ -24,8 +24,8 @@ def dayTimeCreationAndScore():
             hours[hour] = row['score']
             hoursNum[hour] = 1
 
-    for key in hours.keys():                                                        # Get the average score for each hour
-        hours[key] /= hoursNum[key]
+    for hour in hours.keys():                                                        # Get the average score for each hour
+        hours[hour] /= hoursNum[hour]
 
     hoursSorted = dict(sorted(hours.items(), key=lambda item: int(item[0])))        # Sort the hours dictionary based on the keys
 
@@ -36,7 +36,6 @@ def dayTimeCreationAndScore():
     leftAxis.set_ylabel('Average Score', color='lightsteelblue')
     leftAxis.tick_params('y', colors='lightsteelblue')
     plt.xticks(rotation='vertical')
-
     plt.title("Hour of creation and the comment score")
     plt.show()
 

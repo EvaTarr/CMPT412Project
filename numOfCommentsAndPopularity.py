@@ -24,6 +24,7 @@ def numOfCommentsAndPopularity():
     for post in posts_commentNum.keys():
         if posts_commentNum[post] == 0:
             removeMe.append(post)
+    # remove all posts that are empty for the sake of cleaning data that does not result in a value
     for post in removeMe:
         posts_commentNum.pop(post)
 
@@ -60,7 +61,6 @@ def numOfCommentsAndPopularity():
     leftAxis.set_xlabel('Number of Comments')
     leftAxis.set_ylabel('Number Of Posts')
     plt.xticks(rotation='vertical')
-
     rightAxis = leftAxis.twinx()
     rightAxis.plot(xAxis, yAxis2, color='red', marker='o', label='Average Score')
     rightAxis.set_ylabel('Average Score', color='red')

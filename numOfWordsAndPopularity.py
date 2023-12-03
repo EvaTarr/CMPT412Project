@@ -1,5 +1,4 @@
 # Eva Tarr, 11234313, ELT783
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -44,12 +43,12 @@ def numOfWordsAndPopularity():
 
     xAxis = [f"{start}-{end}" for start, end in word_ranges]            # Get all xAxis names
     yAxis = []
-    for key, value in grouped_scores.items():                           # Get all yAxis names (left hand side)
-        yAxis.append(value['count'])
+    for group, score in grouped_scores.items():                           # Get all yAxis names (left hand side)
+        yAxis.append(score['count'])
 
     yAxis2 = []
-    for key, value in grouped_scores.items():                           # get all second yAxis names (right hand side)
-        average = value['sum'] / value['count']
+    for group, score in grouped_scores.items():                           # get all second yAxis names (right hand side)
+        average = score['sum'] / score['count']
         yAxis2.append(average)
 
     # Display the graph
@@ -58,7 +57,6 @@ def numOfWordsAndPopularity():
     leftAxis.set_xlabel('Number Of Words')
     leftAxis.set_ylabel('Number Of Posts')
     plt.xticks(rotation='vertical')
-
     rightAxis = leftAxis.twinx()
     rightAxis.plot(xAxis, yAxis2, color='red', marker='o', label='Average Score')
     rightAxis.set_ylabel('Average Score', color='red')
